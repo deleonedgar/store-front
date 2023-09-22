@@ -1,0 +1,15 @@
+@import 'variables';
+
+.container-box {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.bg-light {
+    background-color: $color-light-background;
+}
+
+body {
+    font-family: $font-rubik;
+    background-color: $color-light-background;
+}
