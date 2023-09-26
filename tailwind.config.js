@@ -62,8 +62,17 @@ module.exports = {
         'display-medium': '45px',
         'display-large': '57px',
       },
+      spacing: {
+        '8': '8px',
+        '16': '16px',
+        '40': '40px',
+        '42': '42px',
+        '20': '20px'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }
 

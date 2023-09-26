@@ -8,4 +8,30 @@
         padding: 36px;
         min-height: 472px;
     }
+    
+    .signup-form {
+        &--agree {
+            max-width: 316px;
+        }
+    }
+
+    &--content {
+        max-width: 431px;
+
+        h1 {
+            color: $color-on-surface;
+            font-size: $font-display-small;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 44px;
+        }
+
+        h2 {
+            color: $color-on-surface-variant;
+            font-size: $font-headline-small;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 32px;
+        }
+    }
 }

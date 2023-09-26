@@ -1,0 +1,40 @@
+@import '../scss/variables';
+
+.form-select,
+.form-input {
+    @apply text-title-medium w-full;
+    padding: 8px 0px 8px 16px;
+    line-height: $font-headline-small;
+    color: $color-on-surface-variant;
+    border-color: $color-on-surface-variant;
+    border-radius: 4px;
+    min-height: 56px;
+
+    &::placeholder {
+        color: $color-on-surface-variant;
+    }
+}
+
+input[type="date"].form-input {
+    padding-right: 16px;
+}
+
+.form-legend {
+    border-top: 1px solid $color-outline-variant;
+    text-align: center;
+      
+    legend {
+        background-color: transparent;
+        padding: 0 39px;
+
+        color: $color-on-surface;
+        font-size: $font-body-small;
+        font-style: normal;
+        font-weight: 400;
+        line-height: $font-body-large;
+    }
+}
+
+.invalid-feedback {
+    @apply mt-2 text-sm text-primary;
+}

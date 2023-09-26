@@ -1,10 +1,10 @@
 import React from "react";
-import { logo } from '../../Images'
+import { logo } from '../../../Images'
 import './style.scss';
 
 function Header () {
     return (
-        <div className='container-box'>
+        <div className='guest-header container-box'>
             <header>
                 <img src={logo} alt='shopindo-logo' />
             </header>
