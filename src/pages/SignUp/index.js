@@ -137,8 +137,8 @@ function SignUp() {
                 </div>
                 <div className='shadow-md border rounded form-container'>
                     <p className='text-headline-large text-on-surface'>{heading}</p>
-                    {subheading !== '' &&
-                        <p className='text-body-small text-on-surface'>{subheading}</p>
+                    {subHeading !== '' &&
+                        <p className='text-body-small text-on-surface'>{subHeading}</p>
                     }
 
                     <form className='signup-form mt-40' onSubmit={handleSubmit}>
