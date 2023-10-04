@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -43,7 +44,7 @@ module.exports = {
         'inverse-on-surface': '#FBEEEC',
         'inverse-primary': '#FFB4A8',
         'scrim': '#000000',
-        'light-background': '#FFFBFF',
+        'light': '#FFFBFF',
       },
       fontSize: {
         'body-small': '12px',
@@ -68,7 +69,7 @@ module.exports = {
         '40': '40px',
         '42': '42px',
         '20': '20px'
-      }
+      },
     },
   },
   plugins: [

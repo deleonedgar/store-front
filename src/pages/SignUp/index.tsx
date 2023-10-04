@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import './style.scss'
 import Header from '../../components/Layouts/Guest/Header';
 import Footer from '../../components/Layouts/Guest/Footer';
-import { google_logo } from '../../components/Images';
 import Moment from 'react-moment';
 
 function SignUp() {
@@ -18,7 +17,7 @@ function SignUp() {
         validateUsername()
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         
         if (! initialSignup) {
@@ -31,8 +30,8 @@ function SignUp() {
         }
     }
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target
+    const handleInputChange = (e: FormEvent<HTMLFormElement>) => {
+        const { name, value } = e.target as any
         setFormData({ ...formData, [name]: value })
     }
 
@@ -58,7 +57,7 @@ function SignUp() {
                 </fieldset>
 
                 <button type='button' className='btn btn-outline mt-40'>
-                    <img src={google_logo} alt='google-logo' className='mr-8' /> Google
+                    {/* <img src={google_logo} alt='google-logo' className='mr-8' /> Google */}
                 </button>
 
                 <div className='signup-form--agree my-40 m-auto text-center'>
@@ -77,7 +76,8 @@ function SignUp() {
                     className='form-select my-16'
                     name='gender'
                     value={formData.gender}
-                    onChange={handleInputChange}>
+                    onChange={handleInputChange}
+                    >
                     <option value='' disabled>Select gender</option>
                     <option value='male'>Male</option>
                     <option value='female'>Female</option>
@@ -93,7 +93,8 @@ function SignUp() {
                     name='date_of_birth'
                     value={formData.date_of_birth}
                     placeholder='Date of Birth'
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                     />
                 {formValidation.date_of_birth !== '' && 
                     <small className='invalid-feedback'>{formValidation.date_of_birth}</small>
                 }
@@ -104,7 +105,8 @@ function SignUp() {
                     name='password'
                     value={formData.password}
                     placeholder='Password'
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                     />
                 {formValidation.password !== '' && 
                     <small className='invalid-feedback'>{formValidation.password}</small>
                 }
@@ -115,7 +117,8 @@ function SignUp() {
                     name='password_confirmation'
                     value={formData.password_confirmation}
                     placeholder='Confirm Password'
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange} 
+                    />
                 {formValidation.password_confirmation !== '' && 
                     <small className='invalid-feedback'>{formValidation.password_confirmation}</small>
                 }
@@ -127,7 +130,7 @@ function SignUp() {
         <div>
             <Header />
             
-            <div className='container-box bg-light auth-container grid grid-cols-2'>
+            <div className='container py-6 container-box bg-light auth-container grid grid-cols-2'>
                 <div className='auth-container--content flex flex-col justify-between'>
                     <div className='flex-grow'></div>
                     <div className='mb-42'>
@@ -147,7 +150,7 @@ function SignUp() {
                             name='username'
                             className='form-input'
                             value={formData.username}
-                            onChange={handleInputChange}
+                            // onChange={handleInputChange}
                             placeholder='Enter email or phone number'/>
                         
                         {formValidation.username !== '' && 
