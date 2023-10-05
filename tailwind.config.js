@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  mode: "jit",
   theme: {
     extend: {
       colors: {
@@ -44,7 +45,7 @@ module.exports = {
         'inverse-on-surface': '#FBEEEC',
         'inverse-primary': '#FFB4A8',
         'scrim': '#000000',
-        'light': '#FFFBFF',
+        'light': '#FEFAFF',
       },
       fontSize: {
         'body-small': '12px',

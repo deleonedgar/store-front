@@ -1,27 +1,31 @@
 import React, { FormEvent, useState } from 'react'
 import './style.scss'
-import Header from '../../components/Layouts/Guest/Header';
-import Footer from '../../components/Layouts/Guest/Footer';
-import Moment from 'react-moment';
+import { BuyerSignupHero } from "../../../components/pages/buyer/signup/hero"
+import { useNavigate } from 'react-router-dom'
+
+
 
 function SignUp() {
     const [heading, setHeading] = useState('Sign Up')
     const [subHeading, setSubHeading] = useState('Sign Up')
-
     const [initialSignup, setInitialSignup] = useState(false)
     const [formData, setFormData] = useState({ username: '', gender: '', date_of_birth: '', password: '', password_confirmation: '' })
     const [formValidation, setFormValidation] = useState({ username: '', gender: '', date_of_birth: '', password: '', password_confirmation: '' })
     let signupFields = null
+    const navigate = useNavigate()
 
     const handleContinueClick = () => {
         validateUsername()
     }
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e) => {
+        console.log(12312312)
         e.preventDefault()
-        
+        navigate('/buyer/home')
+
         if (! initialSignup) {
             validateUsername()
+
         } else {
             // validate fields
             let errors = 0
@@ -128,16 +132,11 @@ function SignUp() {
 
     return (
         <div>
-            <Header />
             
-            <div className='container py-6 container-box bg-light auth-container grid grid-cols-2'>
-                <div className='auth-container--content flex flex-col justify-between'>
-                    <div className='flex-grow'></div>
-                    <div className='mb-42'>
-                        <h1>Shop Quality . Shop Style</h1>
-                        <h2>Helping you get quality products from Indonesia</h2>
-                    </div>
-                </div>
+            {/* <Header /> */}
+            
+            <div className='container pt-6 pb-[150px] container-box bg-light auth-container grid grid-cols-2'>
+                <BuyerSignupHero />
                 <div className='shadow-md border rounded form-container'>
                     <p className='text-headline-large text-on-surface'>{heading}</p>
                     {subHeading !== '' &&
@@ -150,7 +149,7 @@ function SignUp() {
                             name='username'
                             className='form-input'
                             value={formData.username}
-                            // onChange={handleInputChange}
+                            onChange={handleInputChange}
                             placeholder='Enter email or phone number'/>
                         
                         {formValidation.username !== '' && 
@@ -161,7 +160,6 @@ function SignUp() {
                 </div>
             </div>
 
-            <Footer />
         </div>
     );
 }

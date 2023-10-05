@@ -1,5 +1,7 @@
-import Router from "./pages/Router"
 import 'tailwindcss/tailwind.css';
+import { Router } from './router';
+
+
 function App() {
   return (
     <Router />
