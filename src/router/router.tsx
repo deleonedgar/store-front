@@ -1,17 +1,20 @@
 import React from "react"
-import { Routes, Route } from "react-router-dom"
+import { 
+  Routes, 
+  Route } from "react-router-dom"
 import { Homepage } from "../pages/home"
 import { BuyerSignupPage } from "../pages/buyer/signup"
-import { GuestLayout } from "../components/layouts/Guest"
+import { AuthenticationLayout } from "../components/layouts/authentication"  
 
 
-function Router() {
-    return (
-        <Routes>
-            <Route path="/" element={ <Homepage /> } />
-            <Route path="/signup" element={ <GuestLayout><BuyerSignupPage /></GuestLayout> } />
-        </Routes>
-    )
+const Router = () => {
+
+  return (
+    <Routes>
+      <Route path="/" element={ <Homepage /> } />
+      <Route path="/buyer/signup" element={ <AuthenticationLayout><BuyerSignupPage /></AuthenticationLayout> } />
+    </Routes>
+  )
 }
 
 export default Router

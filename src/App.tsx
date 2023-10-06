@@ -2,10 +2,14 @@ import 'tailwindcss/tailwind.css';
 import { Router } from './router';
 
 
-function App() {
+const App = () => {
+
   return (
-    <Router />
+    <div className="light">
+      <Router />
+    </div>
   )
 }
+
 
 export default App

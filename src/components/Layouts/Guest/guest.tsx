@@ -1,6 +1,6 @@
 import React from "react"
-import { Footer } from "../../../components/layouts/Guest/footer"
-import { Header } from "../../../components/layouts/Guest/header"
+import { Footer } from "./footer"
+import { Header } from "./header"
 
 
 type GuestProps = { children: React.ReactNode }
