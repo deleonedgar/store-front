@@ -23,7 +23,7 @@ export const useBuyerOtp = (callback: VoidFunction, dismiss: VoidFunction) =>{
         otp: ""
       } 
   })
-console.log(formErrors)
+
   const handleFormSubmit: SubmitHandler<VerifySchema> = data => {
 
     if ( data.otp ) {

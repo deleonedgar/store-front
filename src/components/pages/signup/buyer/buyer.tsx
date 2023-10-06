@@ -4,6 +4,9 @@ import { useBuyerSignup } from "./hook"
 import { 
 	Link, 
 	useLocation } from "react-router-dom"
+import { BaseModal } from "@/components/modal"
+import { useRef } from "react"
+import { BuyerOtpModal } from "@/components/modal/authentication/otp"
 
 
 const Buyer = () =>{
@@ -11,14 +14,29 @@ const Buyer = () =>{
 		register,
 		handleSubmit,
 		formErrors,
-		isValid } = useBuyerSignup()
+		isValid,
+		otpVisibility,
+		handleOtpVisibility,
+		getValues } = useBuyerSignup()
 	const location = useLocation()
 	const params = new URLSearchParams(location.search)
-
+	const focusBackRef = useRef<HTMLDivElement>(null)
+		
 	return (
 		<>
+			{ otpVisibility && (
+				<BaseModal
+					focusBackRef={ focusBackRef.current }
+					exit={ handleOtpVisibility }
+					background="bg-[#FFFBFF]">
+					<BuyerOtpModal 
+						emailOrPhone={ getValues("emailOrPhone") }
+						successCallback={ () => {} }
+						dismiss={ handleOtpVisibility } />
+				</BaseModal>
+			) }
 			<SignupHero />
-			<div className="px-4 pb-10 sm:px-12 mdl:shadow-md mdl:p-[36px] mdl:bg-white mdl:max-w-[523px] mdl:w-full">
+			<div className="px-4 pb-10 sm:px-12 mdl:shadow-md mdl:p-[36px] mdl:bg-white mdl:max-w-[523px] mdl:w-full outline-none">
 				<div className="mt-[62px] mb-[87px] max-w-[max-content] mx-auto mdl:hidden">
 					<img 
 						src="/logos/shopindo.png"

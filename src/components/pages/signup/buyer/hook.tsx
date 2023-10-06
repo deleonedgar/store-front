@@ -3,6 +3,7 @@ import {
   useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import z from "zod"
+import { useState } from "react"
 
 
 const formSchema = z.object({
@@ -21,16 +22,23 @@ export const useBuyerSignup = () =>{
     formState: {
       errors: formErrors,
       isValid
-    } } = useForm<FormSchema>({ resolver: zodResolver(formSchema) })
+    },
+    getValues } = useForm<FormSchema>({ resolver: zodResolver(formSchema) })
+  const [ otpVisibility, setOtpVisibility ] = useState(false)
 
   const onSubmitHandler: SubmitHandler<FormSchema> = data => {
-    
+    handleOtpVisibility()
   }
+
+  const handleOtpVisibility = () => setOtpVisibility(prev => !prev)
 
   return {
     register,
     handleSubmit: handleSubmit(onSubmitHandler),
     formErrors,
-    isValid
+    isValid,
+    otpVisibility,
+    handleOtpVisibility,
+    getValues
   }
 }
