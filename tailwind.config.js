@@ -7,9 +7,16 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: "media",
   mode: "jit",
   theme: {
     extend: {
+      screens: {
+        mdl: "868px"
+      },
+      fontFamily: {
+        "rubik": ["Rubik", "sans-serif"]
+      },
       colors: {
         'primary': '#C00100',
         'secondary': '#006E21',
@@ -66,14 +73,7 @@ module.exports = {
         'display-small': '36px',
         'display-medium': '45px',
         'display-large': '57px',
-      },
-      spacing: {
-        '8': '8px',
-        '16': '16px',
-        '40': '40px',
-        '42': '42px',
-        '20': '20px'
-      },
+      }
     },
   },
   plugins: [

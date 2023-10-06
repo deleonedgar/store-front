@@ -1,10 +1,11 @@
-import React from "react"
 
 
 const Footer = () =>{
 
   return (
-    <footer></footer>
+    <footer className="mdl:bg-[#6750A41C] mdl:py-8">
+      <p className="mdl:max-w-[400px] mdl:text-body-medium mdl:text-surface-inverse-color mdl:mx-auto mdl:text-center">Product Listing Policy - Privacy Policy - Terms of Condition © 2023 Shopindo.com. All rights reserved.</p>
+    </footer>
   )
 }
 
