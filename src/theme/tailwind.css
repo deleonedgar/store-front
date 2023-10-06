@@ -678,11 +678,17 @@ select {
     max-width: 1536px;
   }
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
 .relative {
   position: relative;
+}
+.inset-0 {
+  inset: 0px;
 }
 .bottom-0 {
   bottom: 0px;
@@ -695,6 +701,9 @@ select {
 }
 .z-10 {
   z-index: 10;
+}
+.z-50 {
+  z-index: 50;
 }
 .m-0 {
   margin: 0px;
@@ -751,6 +760,9 @@ select {
 .max-w-\[400px\] {
   max-width: 400px;
 }
+.max-w-full {
+  max-width: 100%;
+}
 .origin-\[0\] {
   transform-origin: 0;
 }
@@ -786,6 +798,12 @@ select {
 }
 .overflow-visible {
   overflow: visible;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 .rounded {
   border-radius: 0.25rem;
@@ -922,6 +940,10 @@ select {
 .text-surface-onVariant {
   --tw-text-opacity: 1;
   color: hsl(var(--twc-surface-onVariant) / var(--twc-surface-onVariant-opacity, var(--tw-text-opacity)));
+}
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 .duration-300 {
   transition-duration: 300ms;
