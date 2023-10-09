@@ -1,60 +1,40 @@
-import { FormTextInput } from "@/components/shared/form/input/text"
 import { SignupHero } from "./hero"
 import { useBuyerSignup } from "./hook"
-import { 
-	Link, 
-	useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { BuyerOtpModal } from "@/components/modal/authentication/otp"
+import { SignupWelcomeForm } from "./forms/welcome"
+import { SignupProfilingForm } from "./forms/profiling"
 
 
 const Buyer = () =>{
 	const {
-		register,
-		handleSubmit,
-		formErrors,
-		isValid,
-		getValues,
 		handlePortal,
-		Portal } = useBuyerSignup()
-	const location = useLocation()
-	const params = new URLSearchParams(location.search)
+		Portal,
+		redirect,
+		emailOrPhone,
+		currentForm,
+		handleWelcomeSuccess,
+		handleChangeCurrentForm,
+		handlePortalSuccess } = useBuyerSignup()
 		
 	return (
 		<>
 			<Portal>
 				<BuyerOtpModal
-					emailOrPhone={ getValues("emailOrPhone") }
-					successCallback={ () =>{} }
+					emailOrPhone={ emailOrPhone }
+					successCallback={ handlePortalSuccess }
 					dismiss={ handlePortal } />
 			</Portal>
 			<SignupHero />
 			<div className="px-4 pb-10 sm:px-12 mdl:shadow-md mdl:p-[36px] mdl:bg-white mdl:max-w-[523px] mdl:w-full outline-none">
-				<div className="mt-[62px] mb-[87px] max-w-[max-content] mx-auto mdl:hidden">
+				<div className={`${ currentForm===2? "!hidden" : "" } pt-[62px] mb-[87px] max-w-[max-content] mx-auto mdl:hidden`}>
 					<img 
 						src="/logos/shopindo.png"
 						alt="Shop Indo" />
 				</div>
-				<h1 className="text-[22px] text-surface-on text-center mb-10 mdl:text-[32px] mdl:text-left">Sign Up</h1>
-				<form
-					className="mb-10 mdl:mb-5" 
-					onSubmit={ handleSubmit }>
-					<FormTextInput
-						translationLabel="Email or Phone Number"
-						attributes={{ id: "signupEmailOrPhoneFirst" }}
-						error={ formErrors.emailOrPhone?.message }
-						noBottomMargin={ true }
-						{ ...register("emailOrPhone") } />
-					<div className="mt-[30px]">
-						<button
-							className={`tracking-[.1px] font-medium m-0 w-full rounded-md text-surface-on/[.38]  text-sm transparent-bg bg-surface-on/[.12] py-[18px] ${ isValid? "!bg-primary-color !text-white": "" }`}
-							type="submit"
-							aria-disabled="true" >
-							<span className="mdl:hidden">Next</span>
-							<span className="hidden mdl:inline">Continue</span>
-						</button>
-					</div>
-				</form>
-				<div className="mdl:grid">
+				{ currentForm===1 && <SignupWelcomeForm successCallback={ handleWelcomeSuccess } /> }
+				{ currentForm===2 && <SignupProfilingForm changeCurrentForm={ handleChangeCurrentForm } /> }
+				<div className={`mdl:grid ${ currentForm===2? "!hidden" : "" }`}>
 					<div className="mb-[30px] mdl:row-start-3">
 						<p className="block text-xs font-medium text-surface-onVariant max-w-[284px] mx-auto text-center">
 							By signing up, I agree to Shopindo  
@@ -80,15 +60,15 @@ const Buyer = () =>{
 								Google
 						</button>
 					</div>
-				</div>
-				<div className="">
-					<p className="text-sm text-surface-onVariant flex items-center justify-center">
-						Already have an account?
-						<Link 
-							className="tracking-[.1px] rounded-full font-medium text-primary-color py-[10px] px-3 hover:bg-[#f6f5ff]"
-							to={ `/buyer/login${ params.get("redirect")? `?redirect=${ params.get("redirect") }` : "" }` }>Sign in
-						</Link>
-					</p>
+					<div className="">
+						<p className="text-sm text-surface-onVariant flex items-center justify-center">
+							Already have an account?
+							<Link 
+								className="tracking-[.1px] rounded-full font-medium text-primary-color py-[10px] px-3 hover:bg-[#f6f5ff]"
+								to={ `/buyer/login${ redirect? `?redirect=${ redirect }` : "" }` }>Sign in
+							</Link>
+						</p>
+					</div>
 				</div>
 			</div>
 		</>

@@ -27,9 +27,6 @@ export const useBuyerOtp = (callback: VoidFunction, dismiss: VoidFunction) =>{
   const handleFormSubmit: SubmitHandler<VerifySchema> = data => {
 
     if ( data.otp ) {
-      setTimeout(() =>{
-        dismiss()
-      }, 150)
       callback()
     }
   }

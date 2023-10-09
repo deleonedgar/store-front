@@ -76,7 +76,7 @@ const Otp = ({ emailOrPhone, successCallback, dismiss }: OtpProps) => {
             )} />
           <div>
             <button
-              className={`font-medium mt-[30px] w-full rounded-md text-surface-on/[.38] text-label-large bg-surface-on/[.12] py-[18px] ${ isValid? "bg-primary-color text-white" : "" }`}
+              className={`font-medium mt-[30px] w-full rounded-md text-surface-on/[.38] text-label-large bg-surface-on/[.12] py-[18px] ${ isValid? "!bg-primary-color text-white" : "" }`}
               type="submit"
               aria-disabled={ !isValid } >Verify
             </button>

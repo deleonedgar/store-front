@@ -1,40 +1,43 @@
 import { 
-  SubmitHandler, 
-  useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useRef } from "react"
-import { 
-  EmailOrFormSchema, 
-  emailOrFormSchema } from "../schema"
+  useRef, 
+  useState } from "react"
 import { useModalPortal } from "@/components/modal/hook"
+import { useLocation } from "react-router-dom"
 
 
 export const useBuyerSignup = () =>{
-  const {
-    register,
-    handleSubmit,
-    formState: {
-      errors: formErrors,
-      isValid
-    },
-    getValues } = useForm<EmailOrFormSchema>({ resolver: zodResolver(emailOrFormSchema) })
+  const location = useLocation()
+	const params = new URLSearchParams(location.search)
   const focusBackRef = useRef<HTMLDivElement | null>(null)
   const { handlePortal, Portal } = useModalPortal({
     focusBackRef: focusBackRef.current,
     background: "bg-[#FFFBFF]"
   })
+  const [ emailOrPhone, setEmailOrPhone ] = useState("")
+  const [ currentForm, setCurrentForm ] = useState(1)
 
-  const onSubmitHandler: SubmitHandler<EmailOrFormSchema> = data => {
+  const handleWelcomeSuccess = ( value: string ) => {
+    setEmailOrPhone(value)
     handlePortal()
   }
 
+  const handlePortalSuccess = () =>{
+    handlePortal()
+    handleChangeCurrentForm(2)
+  }
+
+  const handleChangeCurrentForm = ( formIndex: number ) =>{
+    setCurrentForm(formIndex)
+  }
+
   return {
-    register,
-    handleSubmit: handleSubmit(onSubmitHandler),
-    formErrors,
-    isValid,
-    getValues,
     handlePortal,
-    Portal
+    Portal,
+    redirect: params.get("redirect"),
+    emailOrPhone,
+    currentForm,
+    handleWelcomeSuccess,
+    handleChangeCurrentForm,
+    handlePortalSuccess
   }
 }
