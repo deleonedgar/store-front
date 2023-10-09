@@ -5,13 +5,13 @@ import OtpInput from 'react-otp-input';
 import { useBuyerOtp } from "./hook";
 import styles from "@/components/styles/input.styles.module.scss"
 import { VerificationIcon } from "@/components/svgs/verification";
+import { EmailOrFormSchema } from "@/components/pages/signup/schema";
 
 
 type OtpProps = {
-  emailOrPhone: string | number,
   successCallback: VoidFunction,
   dismiss: VoidFunction
-}
+} & EmailOrFormSchema
 
 export const testForEmail = ( text: string ) => /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(text)
 

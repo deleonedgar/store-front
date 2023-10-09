@@ -842,9 +842,9 @@ select {
 .border {
   border-width: 1px;
 }
-.border-error-color {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--twc-error-color) / var(--twc-error-color-opacity, var(--tw-border-opacity)));
+.\!border-error-color {
+  --tw-border-opacity: 1 !important;
+  border-color: hsl(var(--twc-error-color) / var(--twc-error-color-opacity, var(--tw-border-opacity))) !important;
 }
 .border-outline-color {
   --tw-border-opacity: 1;
@@ -853,10 +853,6 @@ select {
 .border-primary-color {
   --tw-border-opacity: 1;
   border-color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-border-opacity)));
-}
-.\!border-error-color {
-  --tw-border-opacity: 1 !important;
-  border-color: hsl(var(--twc-error-color) / var(--twc-error-color-opacity, var(--tw-border-opacity))) !important;
 }
 .\!bg-primary-color {
   --tw-bg-opacity: 1 !important;
@@ -874,6 +870,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
+.bg-primary-color {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-bg-opacity)));
+}
 .bg-surface-on\/\[\.12\] {
   background-color: hsl(var(--twc-surface-on) / .12);
 }
@@ -883,10 +883,6 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-primary-color {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-bg-opacity)));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1274,14 +1270,6 @@ body {
   .md\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .md\:ps-4 {
-    padding-inline-start: 1rem;
-  }
-
-  .md\:pt-4 {
-    padding-top: 1rem;
   }
 
   .md\:pt-1 {
