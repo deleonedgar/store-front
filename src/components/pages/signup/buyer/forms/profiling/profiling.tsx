@@ -79,7 +79,7 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
         </div>
         <div className="mb-4">
           <DatePicker 
-            className={`${ styles.datepicker } datepicker w-full [&>div>fieldset]:border-outline-color [&>label]:!text-surface-onVariant [&>label]:bg-white  ${ formErrors.birth?.message? "[&>div>fieldset]:border-primary-color [&>label]:!text-primary-color" : "" }`}
+            className={`${ styles.datepicker } datepicker w-full [&>div>fieldset]:border-outline-color [&>label]:text-surface-onVariant [&>label]:bg-white  ${ formErrors.birth?.message? "[&>div>fieldset]:border-primary-color [&>label]:!text-primary-color" : "" }`}
             label="Date of Birth"
             onChange={ handleDateChange } />
           { formErrors.birth?.message && <span className=" text-xs text-error-color px-4 mt-1">{ formErrors.birth.message }</span> }
@@ -110,7 +110,7 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
           isVisible={ confirmPasswordVisibility }
           toggleVisibility={ toggleConfirmPasswordVisibility }
           className="mb-5 mdl:mb-4"
-          error={ formErrors.password?.message ?? formErrors.confirmPassword?.message }
+          error={ formErrors.confirmPassword?.message ??formErrors.password?.message  }
           { ...register("confirmPassword") } />
 				<div className="mt-[30px]">
 					<button
