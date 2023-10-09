@@ -7,8 +7,6 @@ import { useFormPassword } from "@/components/shared/form/input/password/hook"
 import { DatePicker } from "@mui/x-date-pickers"
 import styles from "./style.module.scss"
 import { BackIcon } from "@/components/svgs/back"
-import { Controller } from "react-hook-form"
-import { Dayjs } from "dayjs"
 
 
 type ProfilingProps = {
@@ -23,7 +21,7 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
     watch,
     handleSubmit,
     select,
-    setValue } = useProfiling()
+    handleDateChange } = useProfiling()
   const {
     passwordVisibility,
     togglePasswordVisibility,
@@ -52,12 +50,13 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
 					translationLabel="Full name"
 					attributes={{ id: "profileFullname" }}
 					error={ formErrors.fullname?.message }
+          className="mb-5 mdl:mb-4"
 					{ ...register("fullname") } />
 				<div className="w-full mb-4">
           <div className="relative w-full">
             <Ariakit.Select 
               store={select} 
-              className={`${ styles.select } w-full min-h-[56px] flex justify-between items-center py-4 pl-4 rounded border border-solid border-outline-color [&>span]:hidden peer`}
+              className={`${ styles.select } ${ formErrors.gender?.message? "border-primary-color" : "" } w-full min-h-[56px] flex justify-between items-center py-4 pl-4 rounded border border-solid border-outline-color [&>span]:hidden peer`}
               data-hasvalue={ `${ !!watch("gender") }` } />
               <span className="absolute top-1/2 right-[20px] -translate-y-1/2">
                 <SelectDropdownIcon />
@@ -80,13 +79,10 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
         </div>
         <div className="mb-4">
           <DatePicker 
-            className={`${ styles.datepicker } datepicker w-full [&>div>fieldset]:border-outline-color [&>label]:!text-surface-onVariant [&>label]:bg-white`}
+            className={`${ styles.datepicker } datepicker w-full [&>div>fieldset]:border-outline-color [&>label]:!text-surface-onVariant [&>label]:bg-white  ${ formErrors.birth?.message? "[&>div>fieldset]:border-primary-color [&>label]:!text-primary-color" : "" }`}
             label="Date of Birth"
-            onChange={ (date: Dayjs | null) => {
-              if ( !date ) return
-              
-              setValue("birth", `${ date.toDate() }`)
-            } } />
+            onChange={ handleDateChange } />
+          { formErrors.birth?.message && <span className=" text-xs text-error-color px-4 mt-1">{ formErrors.birth.message }</span> }
         </div>
         <div>
           <FormPasswordInput 
@@ -94,17 +90,17 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
             attributes={{ id: "profilePassword" }}
             isVisible={ passwordVisibility }
             toggleVisibility={ togglePasswordVisibility }
+            className="mb-5 mdl:mb-4"
             error={ formErrors.password?.message }
-            noBottomMargin={ true }
             { ...register("password") } />
           <div className="mb-4 mt-2 ps-2">
-            <p className="text-xs text-surface-onVariant mb-[6px]">Password must have</p>
+            <p className="text-body-small text-surface-onVariant mb-[6px]">Password must have</p>
             <ul className="max-w-[268px] sm:max-w-max flex flex-wrap">
-              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-xs max-w-[max-content] ${ watch("password").trim().replace(/\s/g, '').length>=8? "!bg-secondary-color !text-secondary-on" : "" }`}>6 characters</li>
-              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-xs max-w-[max-content] ${ watch("password").match(/[a-z]/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 lowercase</li>
-              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-xs max-w-[max-content] ${ watch("password").match(/\d/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 number</li>
-              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-xs max-w-[max-content] ${ watch("password").match(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 special character</li>
-              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-xs max-w-[max-content] ${ watch("password").match(/[A-Z]/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 uppercase</li>
+              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-body-small max-w-[max-content] ${ watch("password").trim().replace(/\s/g, '').length>=6? "!bg-secondary-color !text-secondary-on" : "" }`}>6 characters</li>
+              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-body-small max-w-[max-content] ${ watch("password").match(/[a-z]/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 lowercase</li>
+              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-body-small max-w-[max-content] ${ watch("password").match(/\d/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 number</li>
+              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-body-small max-w-[max-content] ${ watch("password").match(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 special character</li>
+              <li className={`bg-[#F6FFF0] py-[3px] px-[9px] rounded-full text-surface-onVariant mr-1 mb-1 text-body-small max-w-[max-content] ${ watch("password").match(/[A-Z]/) !==null? "!bg-secondary-color !text-secondary-on" : "" }`}>1 uppercase</li>
             </ul>
           </div>
         </div>
@@ -113,11 +109,12 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
           attributes={{ id: "profileConfirmPassword" }}
           isVisible={ confirmPasswordVisibility }
           toggleVisibility={ toggleConfirmPasswordVisibility }
-          error={ formErrors.password?.message }
+          className="mb-5 mdl:mb-4"
+          error={ formErrors.password?.message ?? formErrors.confirmPassword?.message }
           { ...register("confirmPassword") } />
 				<div className="mt-[30px]">
 					<button
-						className={`tracking-[.1px] font-medium m-0 w-full rounded-md text-surface-on/[.38]  text-sm transparent-bg bg-surface-on/[.12] py-[18px] ${ isValid? "!bg-primary-color !text-white": "" }`}
+						className={`tracking-[.1px] font-medium m-0 w-full rounded-md text-surface-on/[.38] text-label-large transparent-bg bg-surface-on/[.12] py-[18px] ${ isValid? "!bg-primary-color !text-white": "" }`}
 						type="submit"
 						aria-disabled="true" >
 						<span className="mdl:hidden">Next</span>

@@ -22,9 +22,8 @@ const Welcome = ({ successCallback }: WelcomeProps) =>{
 				translationLabel="Email or Phone Number"
 				attributes={{ id: "signupEmailOrPhoneFirst" }}
 				error={ formErrors.emailOrPhone?.message }
-				noBottomMargin={ true }
 				{ ...register("emailOrPhone") } />
-			<div className="mt-[30px]">
+			<div className="mt-[30px] mdl:mt-10">
 				<button
 					className={`tracking-[.1px] font-medium m-0 w-full rounded-md text-surface-on/[.38]  text-sm transparent-bg bg-surface-on/[.12] py-[18px] ${ isValid? "!bg-primary-color !text-white": "" }`}
 					type="submit"

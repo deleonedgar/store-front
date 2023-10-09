@@ -1,5 +1,6 @@
 import * as Ariakit from "@ariakit/react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Dayjs } from "dayjs"
 import { 
   SubmitHandler, 
   useForm } from "react-hook-form"
@@ -8,7 +9,7 @@ import z from "zod"
 
 const profilingSchema = z.object({
   fullname: z.string().min(1, "Please enter your fullname"),
-  gender: z.enum(["Male", "Female"], { required_error: "error.gender.required" }),
+  gender: z.enum(["Male", "Female"], { required_error: "Gender is required" }),
   birth: z.string({ required_error: "Birth date required" }),
   password: z
     .string()
@@ -39,7 +40,7 @@ export const useProfiling = () =>{
      setValue: value => {
        if ( !value ) return 
   
-       setValue("gender", value as ProfilingSchema["gender"])
+       setValue("gender", value as ProfilingSchema["gender"], { shouldValidate: true })
      }
    })
 
@@ -51,8 +52,12 @@ export const useProfiling = () =>{
       
       return
     }
+  }
 
-  
+  const handleDateChange = ( date: Dayjs | null ) =>{
+    if ( !date ) return 
+
+    setValue("birth", `${ date.toDate() }`, { shouldValidate: true })
   }
 
   return {
@@ -62,6 +67,7 @@ export const useProfiling = () =>{
     watch,
     handleSubmit: handleSubmit(handleFormSubmit),
     select,
-    setValue
+    setValue,
+    handleDateChange
   }
 }

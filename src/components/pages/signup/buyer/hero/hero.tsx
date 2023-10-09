@@ -7,7 +7,7 @@ const Hero = () =>{
   return (
     <div className='hidden mdl:block mdl:max-w-[clamp(320px,40vw,430px)] mdl:-translate-y-10 mdl:w-full mdl:mr-8 lg:mr-36'>
       <Lottie 
-      style={{ height: 400, width: 400 }}
+        style={{ height: 400, width: 400 }}
         animationData={ shoppingBagAnimation }
         loop={ false } />
       <div className='mb-42'>

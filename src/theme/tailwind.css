@@ -1071,6 +1071,9 @@ select {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-body-medium {
+  font-size: 14px;
+}
 .font-medium {
   font-weight: 500;
 }
@@ -1500,6 +1503,10 @@ body {
     margin-bottom: 0.5rem;
   }
 
+  .mdl\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
   .mdl\:block {
     display: block;
   }
@@ -1604,6 +1611,10 @@ body {
     font-size: 32px;
   }
 
+  .mdl\:text-body-small {
+    font-size: 12px;
+  }
+
   .mdl\:text-surface-inverse-color {
     --tw-text-opacity: 1;
     color: hsl(var(--twc-surface-inverse-color) / var(--twc-surface-inverse-color-opacity, var(--tw-text-opacity)));
@@ -1645,6 +1656,16 @@ body {
   border-color: hsl(var(--twc-outline-color) / var(--twc-outline-color-opacity, var(--tw-border-opacity)));
 }
 
+.\[\&\>div\>fieldset\]\:border-red-600>div>fieldset {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+
+.\[\&\>div\>fieldset\]\:border-primary-color>div>fieldset {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-border-opacity)));
+}
+
 .\[\&\>div\>input\]\:placeholder\:text-surface-onVariant>div>input::placeholder {
   --tw-text-opacity: 1;
   color: hsl(var(--twc-surface-onVariant) / var(--twc-surface-onVariant-opacity, var(--tw-text-opacity)));
@@ -1660,9 +1681,24 @@ body {
   outline-offset: 2px;
 }
 
+.\[\&\>div\>label\]\:border-primary-color>div>label {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-border-opacity)));
+}
+
 .\[\&\>div\>label\]\:text-surface-onVariant>div>label {
   --tw-text-opacity: 1;
   color: hsl(var(--twc-surface-onVariant) / var(--twc-surface-onVariant-opacity, var(--tw-text-opacity)));
+}
+
+.\[\&\>div\>label\]\:text-primary-color>div>label {
+  --tw-text-opacity: 1;
+  color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-text-opacity)));
+}
+
+.\[\&\>div\>label\]\:\!text-primary-color>div>label {
+  --tw-text-opacity: 1 !important;
+  color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-text-opacity))) !important;
 }
 
 .\[\&\>fieldset\]\:border-outline-color>fieldset {
@@ -1687,6 +1723,11 @@ body {
 .\[\&\>label\]\:\!text-surface-onVariant>label {
   --tw-text-opacity: 1 !important;
   color: hsl(var(--twc-surface-onVariant) / var(--twc-surface-onVariant-opacity, var(--tw-text-opacity))) !important;
+}
+
+.\[\&\>label\]\:\!text-primary-color>label {
+  --tw-text-opacity: 1 !important;
+  color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-text-opacity))) !important;
 }
 
 .\[\&\>span\]\:hidden>span {
