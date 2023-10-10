@@ -1,11 +1,10 @@
 import { PhoneVerificationIcon } from "@/components/svgs/verification/phone"
-import { useNavigate } from "react-router"
+import { Link } from "react-router-dom"
 
 
 type SuccessProps = { emailOrPhone: string }
 
 const Success = ({ emailOrPhone }: SuccessProps) =>{
-  const navigate = useNavigate()
 
   return (
     <div className="mb-5">
@@ -17,11 +16,10 @@ const Success = ({ emailOrPhone }: SuccessProps) =>{
         <span className="text-primary-color">{ emailOrPhone }</span>
       </p>
       <div className="">
-				<button
-					className={`tracking-[.1px] font-medium w-full rounded-md text-white text-label-large bg-primary-color py-[18px]`}
-					type="button"
-          onClick={ () => navigate("/buyer/login") } >Ok
-				</button>
+				<Link
+					className={`tracking-[.1px] block text-center font-medium w-full rounded-md text-white text-label-large bg-primary-color py-[18px]`}
+          to="/buyer/login">Ok
+				</Link>
 			</div>
     </div>
   )
