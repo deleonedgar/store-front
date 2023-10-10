@@ -6,7 +6,12 @@ function Home() {
     return (
         <div className=" ">
             <h1 className="">Home Page</h1>
-            <Link to="/buyer/signup">Click to view our sinup page</Link>
+            <div>
+                <Link to="/buyer/signup">Click to view our buyer singup page</Link>
+            </div>
+            <div>
+                <Link to="/buyer/Login">Click to view our buyer login page</Link>
+            </div>
         </div>
     );
 }

@@ -50,7 +50,7 @@ const Buyer = () =>{
 						<p className="text-body-medium mdl:text-body-small text-surface-onVariant flex items-center justify-center">
 							Already have an account?
 							<Link 
-								className="tracking-[.1px] rounded-full font-medium text-primary-color py-[10px] px-3 hover:bg-[#f6f5ff]"
+								className="tracking-[.1px] ms-2 font-medium text-primary-color"
 								to={ `/buyer/login${ redirect? `?redirect=${ redirect }` : "" }` }>Sign in
 							</Link>
 						</p>

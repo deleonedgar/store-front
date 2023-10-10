@@ -678,9 +678,6 @@ select {
     max-width: 1536px;
   }
 }
-.visible {
-  visibility: visible;
-}
 .fixed {
   position: fixed;
 }
@@ -776,6 +773,18 @@ select {
 .mt-\[50px\] {
   margin-top: 50px;
 }
+.mb-40 {
+  margin-bottom: 10rem;
+}
+.ms-auto {
+  margin-inline-start: auto;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.ms-2 {
+  margin-inline-start: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -829,6 +838,9 @@ select {
 }
 .max-w-full {
   max-width: 100%;
+}
+.max-w-max {
+  max-width: max-content;
 }
 .origin-\[0\] {
   transform-origin: 0;
@@ -992,6 +1004,10 @@ select {
 .py-\[3px\] {
   padding-top: 3px;
   padding-bottom: 3px;
+}
+.px-\[12px\] {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 .pb-10 {
   padding-bottom: 2.5rem;
@@ -1358,6 +1374,10 @@ body {
     margin-right: 0.5rem;
   }
 
+  .md\:inline {
+    display: inline;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1434,6 +1454,11 @@ body {
     margin-right: auto;
   }
 
+  .mdl\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .mdl\:mb-10 {
     margin-bottom: 2.5rem;
   }
@@ -1460,6 +1485,10 @@ body {
 
   .mdl\:mt-5 {
     margin-top: 1.25rem;
+  }
+
+  .mdl\:ms-auto {
+    margin-inline-start: auto;
   }
 
   .mdl\:block {

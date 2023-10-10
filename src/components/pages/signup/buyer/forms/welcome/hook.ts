@@ -1,10 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { 
-  EmailOrFormSchema, 
-  emailOrFormSchema } from "../../../schema"
-import { 
   SubmitHandler, 
   useForm } from "react-hook-form"
+import { 
+  EmailOrFormSchema, 
+  emailOrFormSchema } from "../../../schema"
 
 
 export const useSignupWelcome = (successCallback: ( value: string ) => void) =>{
