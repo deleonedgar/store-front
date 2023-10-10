@@ -2,12 +2,9 @@ import {
   useRef, 
   useState } from "react"
 import { useModalPortal } from "@/components/modal/hook"
-import { useLocation } from "react-router-dom"
 
 
 export const useBuyerSignup = () =>{
-  const location = useLocation()
-	const params = new URLSearchParams(location.search)
   const focusBackRef = useRef<HTMLDivElement | null>(null)
   const { handlePortal, Portal } = useModalPortal({
     focusBackRef: focusBackRef.current,
@@ -33,7 +30,6 @@ export const useBuyerSignup = () =>{
   return {
     handlePortal,
     Portal,
-    redirect: params.get("redirect"),
     emailOrPhone,
     currentForm,
     handleWelcomeSuccess,

@@ -678,6 +678,9 @@ select {
     max-width: 1536px;
   }
 }
+.visible {
+  visibility: visible;
+}
 .fixed {
   position: fixed;
 }
@@ -1620,11 +1623,6 @@ body {
 .\[\&\>label\]\:\!text-primary-color>label {
   --tw-text-opacity: 1 !important;
   color: hsl(var(--twc-primary-color) / var(--twc-primary-color-opacity, var(--tw-text-opacity))) !important;
-}
-
-.\[\&\>label\]\:\!text-surface-onVariant>label {
-  --tw-text-opacity: 1 !important;
-  color: hsl(var(--twc-surface-onVariant) / var(--twc-surface-onVariant-opacity, var(--tw-text-opacity))) !important;
 }
 
 .\[\&\>label\]\:text-surface-onVariant>label {

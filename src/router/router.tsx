@@ -3,7 +3,7 @@ import {
   Route } from "react-router-dom"
 import { Homepage } from "../pages/home"
 import { BuyerSignupPage } from "../pages/buyer/signup"
-import { AuthenticationLayout } from "../components/layouts/authentication"  
+import { AuthenticationLayout } from "@/components/Layouts/authentication"
 
 
 const Router = () => {

@@ -1,4 +1,3 @@
-import { SignupHero } from "./hero"
 import { useBuyerSignup } from "./hook"
 import { Link } from "react-router-dom"
 import { BuyerOtpModal } from "@/components/modal/authentication/otp"
@@ -7,19 +6,21 @@ import { SignupProfilingForm } from "./forms/profiling"
 import { GoogleButton } from "@/components/shared/form/button/google"
 import { PrivacyPolicy } from "@/components/shared/policy"
 import { AppLogo } from "@/components/shared/logo"
+import { AuthenticationHero } from "@/components/shared/hero/authentication"
+import { useAddRedirect } from "@/lib/hooks/useAddRedirect"
 
 
 const Buyer = () =>{
 	const {
 		handlePortal,
 		Portal,
-		redirect,
 		emailOrPhone,
 		currentForm,
 		handleWelcomeSuccess,
 		handleChangeCurrentForm,
 		handlePortalSuccess } = useBuyerSignup()
-		
+	const { redirect } = useAddRedirect()
+
 	return (
 		<>
 			<Portal>
@@ -28,7 +29,7 @@ const Buyer = () =>{
 					successCallback={ handlePortalSuccess }
 					dismiss={ handlePortal } />
 			</Portal>
-			<SignupHero />
+			<AuthenticationHero />
 			<div className="px-4 pb-10 sm:px-12 mdl:shadow-md mdl:p-[36px] mdl:bg-white mdl:max-w-[523px] mdl:w-full outline-none">
 				<div className={`${ currentForm===2? "!hidden" : "" } pt-[62px] mb-[87px] max-w-[max-content] mx-auto mdl:hidden`}>
 					<AppLogo />
