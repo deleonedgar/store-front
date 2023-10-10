@@ -33,7 +33,7 @@ const Profiling = ({ changeCurrentForm }: ProfilingProps) => {
       <div className="h-16 shadow-none -translate-x-4 mdl:hidden">
         <div className="pl-2 h-full flex items-center">
           <button
-            className="h-10 w-10 mx-0 rounded-full inline-flex items-center justify-center"
+            className="h-10 w-10 mx-0 rounded-full inline-flex items-center justify-center text-surface-onVariant"
             onClick={() => changeCurrentForm(1)}>
             <BackIcon />
           </button>

@@ -1,0 +1,1 @@
+export { default as BuyerResetPage } from "./reset"

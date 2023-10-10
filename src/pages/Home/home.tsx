@@ -19,7 +19,7 @@ function Home() {
                 <Link to="/buyer/signup">Click to view our buyer signup page</Link>
             </div>
             <div>
-                <Link to="/buyer/Login">Click to view our buyer login page</Link>
+                <Link to="/buyer/login">Click to view our buyer login page</Link>
             </div>
         </div>
     );

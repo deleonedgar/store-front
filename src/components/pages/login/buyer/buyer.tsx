@@ -33,7 +33,9 @@ const Buyer = () =>{
 				</div>
 				<LoginWelcomeForm successCallback={ handleWelcomeSuccess } />
 				<div className="max-w-max mx-auto mb-5 mdl:ms-auto mdl:mx-0">
-					<button className="text-primary-color font-medium text-body-small">Forgot Password?</button>
+					<Link 
+						className="text-primary-color font-medium text-body-small"
+						to="/buyer/reset">Forgot Password?</Link>
 				</div>
 				<div className="mdl:grid">
 					<div className="relative before:absolute before:w-full before:h-[1px] before:bg-outline-variant before:left-0 before:top-[7.5px] mdl:row-start-1">
