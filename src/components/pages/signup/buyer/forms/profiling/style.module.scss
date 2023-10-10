@@ -1,0 +1,26 @@
+
+
+.datepicker {
+
+  & input:focus {
+    box-shadow: none;
+  }
+
+  
+}
+
+.select {
+
+  &[aria-expanded="true"],
+  &[data-hasvalue="true"] {
+
+    ~ div:first-of-type {
+      padding: 0 8px;
+      transform: scale(.75) translate(-1.5rem, -3.2rem);
+    }
+  }
+
+  &[aria-expanded="true"] {
+    outline: 1.5px solid #2563eb;
+  }
+}

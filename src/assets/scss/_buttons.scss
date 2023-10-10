@@ -1,0 +1,23 @@
+@import '../scss/variables';
+
+.btn {
+    @apply flex items-center justify-center;
+    font-size: $font-title-small;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    padding: 10px 24px;
+    border-radius: 4px;
+    min-height: 56px;
+
+    &.btn-primary {
+        @apply w-full text-white;
+        background-color: $color-primary;
+    }
+
+    &.btn-outline {
+        @apply w-full text-outline;
+        border: 1px solid $color-outline;
+        background-color: transparent;
+    }
+}

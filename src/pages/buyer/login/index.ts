@@ -1,0 +1,1 @@
+export { default as BuyerLoginPage } from "./login"
