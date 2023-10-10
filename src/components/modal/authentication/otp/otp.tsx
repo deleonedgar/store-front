@@ -4,8 +4,8 @@ import { Controller } from "react-hook-form"
 import OtpInput from 'react-otp-input';
 import { useBuyerOtp } from "./hook";
 import styles from "@/components/styles/input.styles.module.scss"
-import { VerificationIcon } from "@/components/svgs/verification";
 import { EmailOrFormSchema } from "@/components/pages/signup/schema";
+import { PhoneVerificationIcon } from "@/components/svgs/verification/phone";
 
 
 type OtpProps = {
@@ -28,7 +28,7 @@ const Otp = ({ emailOrPhone, successCallback, dismiss }: OtpProps) => {
       <div className="h-16 shadow-none md:hidden">
         <div className="pl-2 h-full flex items-center">
             <button
-              className="h-10 w-10 mx-0 rounded-full inline-flex items-center justify-center"
+              className="h-10 w-10 mx-0 rounded-full inline-flex items-center justify-center text-surface-onVariant"
               onClick={() => {
                 dismiss()
                 reset()
@@ -48,7 +48,7 @@ const Otp = ({ emailOrPhone, successCallback, dismiss }: OtpProps) => {
                 <span className="md:hidden">your </span> 
                 { testForEmail(`${ emailOrPhone }`)? "email address" : "phone number" }</h2>
               <div className="hidden md:flex md:justify-center md:mb-5">
-                <VerificationIcon />
+                <PhoneVerificationIcon />
               </div>
               <p className="text-body-small text-surface-onVariant">
                 <span>
