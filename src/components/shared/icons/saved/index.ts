@@ -1,0 +1,1 @@
+export { default as SavedIcon } from "./saved"

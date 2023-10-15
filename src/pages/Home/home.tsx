@@ -21,6 +21,9 @@ function Home() {
             <div>
                 <Link to="/buyer/login">Click to view our buyer login page</Link>
             </div>
+            <div>
+                <Link to="/buyer/account">Click to view our buyer account overview page</Link>
+            </div>
         </div>
     );
 }
