@@ -1,8 +1,8 @@
-import { BuyerAccount } from "@/components/pages/account/buyer"
 import { SideBar } from "@/components/shared/navigation/pane"
+import { BuyerChangePassword } from "@/components/pages/account/buyer/changepassword"
 
 
-const Account = () =>{
+const Address = () =>{
 
 	return (
 		<main className="bg-background mdl:px-6 mdl:pt-12 mdl:pb-[clamp(64px,20vw,228px)]">
@@ -11,13 +11,12 @@ const Account = () =>{
                     <SideBar />
                 </div>
                 <div className="col-span-1 md:col-span-3 lg:col-span-3">
-                    <BuyerAccount />
+                    <BuyerChangePassword />
                 </div>
-                
             </div>
 		</main>
 	)
 }
 
 
-export default Account
+export default Address

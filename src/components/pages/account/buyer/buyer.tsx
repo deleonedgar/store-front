@@ -33,11 +33,22 @@ const Buyer = () =>{
                 <div className="col-span-1 md:col-span-1 lg:col-span-1">
                     <div className="max-w-xl border rounded-lg overflow-hidden shadow-lg">
                         <div className="px-6 py-4">
-                            <div className="text-sm mb-2">Account Details</div>
+                        <div className="text-sm mb-2 flex">
+                                <span>Account Details</span>
+                                <span className="ml-auto">
+                                    <Link
+                                        className="tracking-[.1px]"
+                                        to={ `/buyer/account/editaccount` }> 
+                                        <WriteIcon />
+                                    </Link>
+                                </span>
+                            </div>
                             <div className="border-b mb-2"></div> {/* Line separator */}
                             <div className="text-gray-700 text-base">
-                            <p className="text-xs">John Joe</p>
-                            <p className="text-xs">johnjoe@gmail.com</p>
+                                <p className="text-xs mb-1" style={{fontSize:"14px"}}><label htmlFor="">Full Name : </label>John Joe</p>
+                                <p className="text-xs mb-1" style={{fontSize:"14px"}}><label htmlFor="">Email Address : </label>johnjoe@gmail.com</p>
+                                <p className="text-xs mb-1" style={{fontSize:"14px"}}><label htmlFor="">Phone Number : </label>09061040175</p>
+                                <p className="text-xs mb-1" style={{fontSize:"14px"}}><label htmlFor="">Birthday : </label>January 1 2023</p>
                             </div>
                         </div>
                     </div>
@@ -46,7 +57,7 @@ const Buyer = () =>{
                     <div className="max-w-xl border rounded-lg overflow-hidden shadow-lg">
                         <div className="px-6 py-4">
                             <div className="text-sm mb-2 flex">
-                                <span>Delivery Address</span>
+                                <span> Delivery Address</span>
                                 <span className="ml-auto">
                                     <Link
                                         className="tracking-[.1px]"
@@ -57,13 +68,39 @@ const Buyer = () =>{
                             </div>
                             <div className="border-b mb-2"></div> {/* Line separator */}
                             <div className="text-gray-700 text-base">
-                            <p className="text-xs">Your default delivery details:</p>
-                            <p className="text-xs">etc</p>
+                            <p className="text-mg text-center m-8">Your default delivery details:</p>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
+                <div className="col-span-1 md:col-span-1 lg:col-span-1">
+                    <div className="max-w-xl border rounded-lg overflow-hidden shadow-lg">
+                        <div className="px-6 py-4">
+                        <div className="text-sm mb-2 flex">
+                                <span className="mr-2">My Payment Options</span>
+                                <span> | </span>
+                                <Link className="tracking-[.1px] ml-2" to="/buyer/account/addpayment" style={{ color: "red", fontSize: "13px" }}> Add Card
+                                </Link>
+                                <span className="ml-auto">
+                                    <Link
+                                        className="tracking-[.1px]"
+                                        to={ `/buyer/account/editpayment` }> 
+                                        <WriteIcon />
+                                    </Link>
+                                </span>
+                            </div>
+                            <div className="border-b mb-2"></div> {/* Line separator */}
+                            <div className="text-gray-700 text-base">
+                                <p className="text-mg text-center m-8">No Payment Options</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
         <br />

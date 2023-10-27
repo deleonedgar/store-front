@@ -1,0 +1,1 @@
+export { default as BuyerChangePassword } from "./changepassword"

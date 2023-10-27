@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css';
 import { Router } from './router';
+
 // Tailwind
 import './theme/tailwind.css';
 import { LocalizationProvider } from '@mui/x-date-pickers'
@@ -11,7 +12,7 @@ const App = () => {
   return (
     <LocalizationProvider dateAdapter={ AdapterDayjs }>
       <div className="light">
-        <Router />
+        <Router/>
       </div>
     </LocalizationProvider>
   )
