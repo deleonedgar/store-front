@@ -31,7 +31,7 @@ const SideBar = () =>{
                 <p className="text-body-medium mdl:text-body-small text-surface-onVariant flex items-left justify-left">
                     <Link
                         className="tracking-[.1px]"
-                        to={ `/buyer/signup` }>
+                        to={ `/buyer/orders` }>
                             <div className="flex pt-2">
                                 <OrderIcon /> 
                                 <p className="pl-2">Orders</p> 
